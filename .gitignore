@@ -1,0 +1,8 @@
+node_modules
+yarn.lock
+/dist
+/dist-js
+mas.provisionprofile
+.vscode
+.DS_store
+/.devcontainer
