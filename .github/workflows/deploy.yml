@@ -11,21 +11,25 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
 
-      - name: Add SSH key
-        uses: webfactory/ssh-agent@v0.9.0
-        with:
-          ssh-private-key: ${{ secrets.EC2_SSH_KEY }}
+      - name: Setup SSH key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.EC2_SSH_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan ${{ secrets.EC2_HOST }} >> ~/.ssh/known_hosts
 
       - name: Deploy to EC2
         run: |
-          ssh -o StrictHostKeyChecking=no ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} << 'EOF'
-            pkill node || true
-            rm -rf ~/caprine-deploy
-            git clone https://github.com/UbaidSaroya/caprine-deploy.git
+          ssh ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} << 'EOF'
+            if [ ! -d caprine-deploy ]; then
+              git clone https://github.com/UbaidSaroya/caprine-deploy.git
+            fi
             cd caprine-deploy
+            git pull origin main
             npm install
-            nohup xvfb-run npm start > caprine.log 2>&1 &
+            sudo chown root:root ./node_modules/electron/dist/chrome-sandbox
+            sudo chmod 4755 ./node_modules/electron/dist/chrome-sandbox
+            nohup xvfb-run npm start > out.log 2>&1 &
           EOF
-
