@@ -14,20 +14,20 @@
   "engines": {
     "node": ">=16"
   },
-  "scripts": {
-    "postinstall": "patch-package && electron-builder install-app-deps",
-    "lint:xo": "xo",
-    "lint:stylelint": "stylelint \"css/**/*.css\"",
-    "lint": "npm run lint:xo && npm run lint:stylelint",
-    "test:tsc": "npm run build",
-    "test": "npm run test:tsc && npm run lint",
- "start": "tsc && electron . --disable-gpu"
-    "build": "tsc",
-    "dist:linux": "electron-builder --linux",
-    "dist:mac": "electron-builder --mac",
-    "dist:win": "electron-builder --win",
-    "release": "np --no-publish"
-  },
+"scripts": {
+  "postinstall": "patch-package && electron-builder install-app-deps",
+  "lint:xo": "xo",
+  "lint:stylelint": "stylelint \"css/**/*.css\"",
+  "lint": "npm run lint:xo && npm run lint:stylelint",
+  "test:tsc": "npm run build",
+  "test": "npm run test:tsc && npm run lint",
+  "start": "tsc && electron . --disable-gpu",
+  "build": "tsc",
+  "dist:linux": "electron-builder --linux",
+  "dist:mac": "electron-builder --mac",
+  "dist:win": "electron-builder --win",
+  "release": "np --no-publish"
+},
   "dependencies": {
     "@electron/remote": "^2.1.2",
     "@sindresorhus/do-not-disturb": "^1.1.0",
