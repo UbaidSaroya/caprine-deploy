@@ -245,6 +245,7 @@ function countUnread(mutationsList: MutationRecord[]): void {
 const bodyText = bodyTextNode ? generateStringFromNode(bodyTextNode) : '';
 
 
+
 		if (!bodyText || !titleText || !imgUrl) {
 			continue;
 		}
