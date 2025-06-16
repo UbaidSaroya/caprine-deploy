@@ -109,23 +109,23 @@
       "pre-push": "npm test"
     }
   },
-  "build": {
-    "appId": "com.sindresorhus.caprine",
-    "productName": "Caprine",
-    "copyright": "Copyright © 2025 Sindre Sorhus",
-    "files": [
-      "dist-js/**/*",
-      "node_modules/**/*",
-      "package.json"
+ "build": {
+  ...
+  "linux": {
+    "target": [
+      {
+        "target": "deb",
+        "arch": ["x64"]
+      },
+      "AppImage"
     ],
-    "directories": {
-      "buildResources": "build"
-    },
-    "mac": {
-      "category": "public.app-category.social-networking",
-      "target": ["dmg", "zip"],
-      "icon": "build/icon.icns"
-    },
+    "deb": {
+      "fpm": [
+        "--deb-no-default-config-files"
+      ]
+    }
+  }
+}
     "dmg": {
       "iconSize": 160,
       "contents": [
