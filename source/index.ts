@@ -100,7 +100,10 @@ app.on('second-instance', () => {
 app.on('ready', () => {
 	electronScreen.on('display-removed', () => {
 		const [x, y] = mainWindow.getPosition();
-		mainWindow.setPosition(x, y);
+		if (typeof x === 'number' && typeof y === 'number') {
+  mainWindow.setPosition(x, y);
+}
+
 	});
 });
 
@@ -178,7 +181,7 @@ function enableHiresResources(): void {
 	session.defaultSession.webRequest.onBeforeSendHeaders(
 		filter,
 		(details: OnSendHeadersDetails, callback: (response: BeforeSendHeadersResponse) => void) => {
-			let cookie = details.requestHeaders.Cookie;
+			let cookie = details.requestHeaders['Cookie'];
 
 			if (cookie && details.method === 'GET') {
 				cookie = /(?:; )?dpr=\d/.test(cookie) ? cookie.replace(/dpr=\d/, `dpr=${scaleFactor}`) : `${cookie}; dpr=${scaleFactor}`;
@@ -228,7 +231,7 @@ function initRequestsFiltering(): void {
 
 		const callRingtoneHash = '2NAu/QVqg211BbktgY5GkA==';
 		callback({
-			cancel: responseHeaders['content-md5'][0] === callRingtoneHash,
+			cancel: responseHeaders['content-md5']?.[0] === callRingtoneHash,
 		});
 	});
 }
@@ -490,7 +493,7 @@ function createMainWindow(): BrowserWindow {
 		);
 
 		if (is.macos) {
-			await import('./touch-bar');
+			await import('./touch-bar.js');
 		}
 	});
 
