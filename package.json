@@ -129,22 +129,23 @@
         { "x": 480, "y": 170, "type": "link", "path": "/Applications" }
       ]
     },
-    "linux": {
-      "target": [
-        {
-          "target": "deb",
-          "arch": ["x64"],
-          "options": {
-            "fpm": ["--deb-no-default-config-files"]
-          }
-        },
-        "AppImage"
-      ],
-      "icon": "build/icons/",
-      "synopsis": "Elegant Facebook Messenger desktop app",
-      "description": "Caprine is an unofficial and privacy focused Facebook Messenger app with many useful features.",
-      "category": "Network;Chat"
+   "linux": {
+  "target": [
+    {
+      "target": "AppImage",
+      "arch": ["x64"],
+      "options": {
+        "publish": "always"
+      }
     },
+    {
+      "target": "deb",
+      "arch": ["x64"]
+    }
+  ],
+  ...
+}
+
     "snap": {
       "plugs": ["default", "camera", "removable-media"],
       "publish": [
