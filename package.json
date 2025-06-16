@@ -103,30 +103,29 @@
     "publish": false,
     "releaseDraft": false
   },
-"linux": {
-  "debNoDefaultConfigFiles": true,
-  "target": [
-    {
-      "target": "AppImage",
-      "arch": ["x64"]
-    },
-    {
-      "target": "deb",
-      "arch": ["x64"]
+  "husky": {
+    "hooks": {
+      "pre-push": "npm test"
     }
-  ],
-  "category": "Network",
-  "icon": "build/icon.png"
-}
-
-    "dmg": {
-      "iconSize": 160,
-      "contents": [
-        { "x": 180, "y": 170 },
-        { "x": 480, "y": 170, "type": "link", "path": "/Applications" }
-      ]
+  },
+  "build": {
+    "appId": "com.sindresorhus.caprine",
+    "productName": "Caprine",
+    "directories": {
+      "buildResources": "build",
+      "output": "dist"
     },
+    "files": [
+      "build/**/*",
+      "dist-js/**/*",
+      "main.js",
+      "preload.js",
+      "index.js",
+      "renderer.js",
+      "package.json"
+    ],
     "linux": {
+      "debNoDefaultConfigFiles": true,
       "target": [
         {
           "target": "AppImage",
@@ -138,9 +137,16 @@
         }
       ],
       "icon": "build/icons/",
+      "category": "Network;Chat",
       "synopsis": "Elegant Facebook Messenger desktop app",
-      "description": "Caprine is an unofficial and privacy focused Facebook Messenger app with many useful features.",
-      "category": "Network;Chat"
+      "description": "Caprine is an unofficial and privacy focused Facebook Messenger app with many useful features."
+    },
+    "dmg": {
+      "iconSize": 160,
+      "contents": [
+        { "x": 180, "y": 170 },
+        { "x": 480, "y": 170, "type": "link", "path": "/Applications" }
+      ]
     },
     "snap": {
       "plugs": ["default", "camera", "removable-media"],
@@ -160,10 +166,5 @@
       "allowToChangeInstallationDirectory": true
     },
     "buildDependenciesFromSource": true
-  },
-  "husky": {
-    "hooks": {
-      "pre-push": "npm test"
-    }
   }
 }
