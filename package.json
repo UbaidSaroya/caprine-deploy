@@ -37,7 +37,7 @@
     "xo": "^0.53.1",
     "stylelint": "^15.0.0",
     "@types/lodash": "^4.14.202",
-    "@types/electron-localshortcut": "^3.2.0",
+    "@types/electron-localshortcut": "^1.2.0",
     "@types/facebook-locales": "^1.0.0"
   },
   "build": {
