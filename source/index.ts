@@ -101,7 +101,10 @@ app.on('ready', () => {
 	electronScreen.on('display-removed', () => {
 		const [x, y] = mainWindow.getPosition();
 		if (typeof x === 'number' && typeof y === 'number') {
+ if (x !== undefined && y !== undefined) {
   mainWindow.setPosition(x, y);
+}
+
 }
 
 	});
@@ -494,6 +497,7 @@ function createMainWindow(): BrowserWindow {
 
 		if (is.macos) {
 			await import('./touch-bar.js');
+
 		}
 	});
 
