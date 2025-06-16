@@ -162,7 +162,7 @@ async function openSearchInConversation() {
 	const buttonList = document.querySelectorAll<HTMLElement>(selectors.rightSidebarButtons);
 
 	// Search in conversation is the last button
-	buttonList[buttonList.length - 1].click();
+	buttonList?.[buttonList.length - 1]?.click();
 }
 
 ipc.answerMain('search', () => {
