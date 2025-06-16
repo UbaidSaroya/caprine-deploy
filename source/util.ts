@@ -12,7 +12,11 @@ import tray from './tray';
 export function getWindow(): BrowserWindow {
 	const [win] = BrowserWindow.getAllWindows();
 	if (!win) throw new Error('BrowserWindow not found');
+if (!win) {
+  throw new Error('Window not found');
+}
 return win;
+
 }
 
 export function sendAction<T>(action: string, arguments_?: T): void {
