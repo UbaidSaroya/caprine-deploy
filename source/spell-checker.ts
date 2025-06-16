@@ -73,7 +73,9 @@ function getSpellCheckerLanguages(): MenuItemConstructorOptions[] {
 	for (const language of availableLanguages) {
 		languageItem.push(
 			{
-				label: language ? (languageToCode.get(language) ?? languageToCode.get(language.split('-')[0]) ?? language) : '',
+				label: languageToCode.get(language) ??
+       languageToCode.get(language?.split('-')[0] ?? '') ??
+       language,
 				type: 'checkbox',
 				checked: languagesChecked.includes(language),
 				click() {
