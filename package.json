@@ -103,7 +103,7 @@
     "publish": false,
     "releaseDraft": false
   },
- "linux": {
+"linux": {
   "debNoDefaultConfigFiles": true,
   "target": [
     {
@@ -115,7 +115,8 @@
       "arch": ["x64"]
     }
   ],
-  ...
+  "category": "Network",
+  "icon": "build/icon.png"
 }
 
     "dmg": {
