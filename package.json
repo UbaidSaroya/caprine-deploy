@@ -2,6 +2,7 @@
   "name": "caprine",
   "version": "2.60.3",
   "description": "Elegant Facebook Messenger desktop app",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "postinstall": "patch-package && electron-builder install-app-deps",
@@ -34,7 +35,10 @@
     "tsc": "^2.0.4",
     "typescript": "^5.3.3",
     "xo": "^0.53.1",
-    "stylelint": "^15.0.0"
+    "stylelint": "^15.0.0",
+    "@types/lodash": "^4.14.202",
+    "@types/electron-localshortcut": "^3.2.0",
+    "@types/facebook-locales": "^1.0.0"
   },
   "build": {
     "appId": "com.sindresorhus.caprine",
