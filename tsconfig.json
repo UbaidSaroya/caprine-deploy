@@ -3,12 +3,19 @@
   "compilerOptions": {
     "outDir": "dist-js",
     "target": "ES2022",
-    "module": "Node16",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
     "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
     "lib": [
       "esnext",
       "dom",
       "dom.iterable"
     ]
-  }
+  },
+  "include": [
+    "source"
+  ]
 }
