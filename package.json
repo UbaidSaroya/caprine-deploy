@@ -57,12 +57,7 @@
       ],
       "category": "Network",
       "maintainer": "Sindre Sorhus <sindresorhus@gmail.com>",
-      "description": "Caprine is an unofficial and privacy-focused Facebook Messenger app with many useful features.",
-      "deb": {
-        "fpm": [
-          "--deb-no-default-config-files"
-        ]
-      }
+      "description": "Caprine is an unofficial and privacy-focused Facebook Messenger app with many useful features."
     }
   }
 }
