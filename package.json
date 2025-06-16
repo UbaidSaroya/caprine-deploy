@@ -26,7 +26,8 @@
   "dist:linux": "electron-builder --linux",
   "dist:mac": "electron-builder --mac",
   "dist:win": "electron-builder --win",
-  "release": "np --no-publish"
+  "release": "np --no-publish",
+  "dist": "electron-builder"
 },
   "dependencies": {
     "@electron/remote": "^2.1.2",
