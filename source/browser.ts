@@ -138,6 +138,7 @@ ipc.answerMain('log-out', async () => {
 
 			nodes?.[nodes.length - 1]?.click();
 
+
 		}, 250);
 	} else {
 		await withSettingsMenu(() => {
