@@ -163,7 +163,7 @@
     "icon": "build/icon.png",
     "sign": false
   },
-  "nsis": {
+   "nsis": {
     "oneClick": false,
     "perMachine": false,
     "allowToChangeInstallationDirectory": true
