@@ -51,9 +51,4 @@ jobs:
       - name: Package Caprine for Linux
         if: startsWith(matrix.os, 'ubuntu')
         run: npm run dist:linux
-        env:
-          SNAPCRAFT_STORE_CREDENTIALS: ${{ secrets.snapcraft_token }}
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Upload to Gemfury
-        if: startsWith(matrix.os, 'ubuntu')
-        run: curl -F package=@dist/caprine_${{ steps.release_tag.outputs.value }}_amd64.deb https://${{ secrets.gemfury_token }}@push.fury.io/lefterisgar/
+       
